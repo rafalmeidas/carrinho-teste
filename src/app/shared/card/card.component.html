@@ -1,0 +1,9 @@
+<section class="card">
+  <img [src]="url" [alt]="title" class="image" />
+  <div class="text">
+    <h2>{{ title }}</h2>
+    <span>R$ {{ value }}</span>
+    <p>R$ {{ discount }}</p>
+  </div>
+  <ng-content></ng-content>
+</section>

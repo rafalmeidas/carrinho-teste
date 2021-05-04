@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+    width: 65%;
+    flex-direction: row;
+    flex: wrap;
+    justify-content: flex-start;
+    margin: 1.5rem;
+    
+    .image{
+        width:10rem;
+        height:12rem;
+        border: 0.1rem solid #CCC;
+    }
+
+    .text {
+        margin: auto 1.5rem;
+    }
+}

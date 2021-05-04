@@ -1,0 +1,15 @@
+.list-group {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #FFF;
+    border-radius: 1.2rem;
+    flex-direction: column;
+    box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
+
+    .title {
+        display: flex;
+        justify-content: center;
+        margin: 1.5rem 0 1.5rem 0;
+    }
+}
