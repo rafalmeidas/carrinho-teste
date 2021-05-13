@@ -6,11 +6,18 @@ import { HeaderModule } from './header/header.module';
 import { ItemListModule } from './item-list/item-list.module';
 import { CardModule } from './shared/card/card.module';
 import { ButtonModule } from './shared/button/button.module';
-import { CartComponent } from './cart/cart.component';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
-  declarations: [AppComponent, CartComponent],
-  imports: [BrowserModule, HeaderModule, ItemListModule, CardModule, ButtonModule],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HeaderModule,
+    ItemListModule,
+    CardModule,
+    ButtonModule,
+    CartModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

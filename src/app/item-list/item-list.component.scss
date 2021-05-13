@@ -1,15 +1,30 @@
-.list-group {
+.container {
+  width: 85%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .list-group {
     display: flex;
-    width: 80%;
-    margin: 0 auto;
-    background-color: #FFF;
+    width: 50%;
+    background-color: #fff;
     border-radius: 1.2rem;
-    flex-direction: column;
     box-shadow: 5px 8px 5px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    margin-right: 1.5rem;
 
     .title {
-        display: flex;
-        justify-content: center;
-        margin: 1.5rem 0 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0 1.5rem 0;
     }
+  }
+
+  .car {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+  }
 }

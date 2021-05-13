@@ -1,14 +1,35 @@
-<div class="list-group">
-  <h1 class="title">Lista de Produtos</h1>
-  <hr />
-  <car-card
-    *ngFor="let item of items"
-    [title]="item.name"
-    [value]="item.price"
-    [discount]="item.sellingPrice"
-    [url]="item.imageUrl"
-    class="card"
-  >
-    <car-button [name]="class" (click)="addToCartList(item.id, item.name, item.price)"></car-button>
-  </car-card>
+<div class="container">
+  <div class="list-group">
+    <h1 class="title">Lista de Produtos</h1>
+    <hr />
+    <car-card
+      *ngFor="let item of items"
+      [title]="item.name"
+      [value]="item.price"
+      [discount]="item.sellingPrice"
+      [url]="item.imageUrl"
+      class="card"
+    >
+      <car-button
+        [name]="class"
+        (click)="addToCartList(item.id, item.name, item.price, item.sellingPrice)"
+      ></car-button>
+    </car-card>
+  </div>
+
+  <div class="car">
+    <section *ngFor="let item of cartList">
+      <section >
+        <h3>{{item.name}}</h3>
+        <span>{{item.value}}</span>
+        <p>{{item.sellingPrice}}</p>
+        <p>{{item.qtde}}</p>
+      </section>
+    </section>
+    <section>
+      <p>Total</p>
+      <p></p>
+    </section>
+    <button>Finalizar compra</button>
+  </div>
 </div>
