@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { capitalize } from 'src/util/formatter';
-import { api, getItems } from '../services/api.service';
+import { getItems } from '../services/api.service';
 
 export interface ItemsList {
   id: number;
@@ -15,6 +15,7 @@ export interface ItemsCart {
   id: number;
   name: string;
   value: string;
+  sellingPrice: string;
   qtde: number;
 }
 
@@ -30,16 +31,17 @@ export class ItemListComponent implements OnInit {
   cartList: ItemsCart[] = [];
   index: number[] = [];
 
+  total: number = 0;
+
   constructor() {}
 
   async ngOnInit(): Promise<void> {
     this.items = await getItems();
-    console.log(this.front(this.items));
-
+    this.front(this.items);
     this.class = 'fa fa-plus fa-3x';
   }
 
-  addToCartList(id: number, name: string, value: string) {
+  addToCartList(id: number, name: string, value: string, sellingPrice: string) {
     if (this.index.length > 0 && this.index.includes(id)) {
       this.cartList.map((item) => {
         if (item.id == id) {
@@ -49,22 +51,19 @@ export class ItemListComponent implements OnInit {
     } else {
       this.index.push(id);
       let qtde = 1;
-      let item: ItemsCart = { id, name, value, qtde };
+      let item: ItemsCart = { id, name, value, sellingPrice, qtde };
       this.cartList.push(item);
     }
-    console.log(this.cartList);
   }
-
+ 
   front(items: ItemsList[]) {
     console.log(items);
     
     items.map(item => {
-      item.id = item.id;
-      // name: capitalize(item.name);
-      // value: parseFloat(item.value);
-      // price: parseFloat(item.price);
-      // sellingPrice: parseFloat(item.sellingPrice);
-      // imageUrl: item;
+      item.name = capitalize(item.name);
+      item.value = item.value;
+      item.price = item.price;
+      item.sellingPrice = item.sellingPrice;
     });
     return items;
   }
